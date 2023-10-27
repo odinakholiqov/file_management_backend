@@ -15,11 +15,13 @@ user_input = helpers.welcome()
 match user_input:
     case 1:
         print("\tFunc: Change CWD")
-        destination = input("\tEnter the destination: ")
+        to_parent = True if input("\tGo back <-: ") == "yes" else False
+        
+        destination = None
+        if not to_parent: destination = input("\tEnter the destination: ")
+
         try: 
-            helpers.change_cwd(destination)
+            helpers.change_cwd(to_parent, destination)
         except:
             # make while and add continue
             pass
-
-

@@ -15,11 +15,15 @@ def welcome():
         
     return user_input
 
-def change_cwd(destination: pathlib.Path):
+def change_cwd(to_parent, destination):
     try:
         cwd = pathlib.Path.cwd()
-        cwd = cwd / f"{destination}"
-        print(f"\tNow you are in: {cwd}")   
+        if to_parent is False:
+            cwd = cwd / f"{destination}"
+            print(f"\tNow you are in: {cwd}")
+        else:
+            cwd = cwd.parent
+            print(f"\tNow you are in: {cwd}")
     except:
         print("Try later.")
 
