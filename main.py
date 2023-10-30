@@ -9,7 +9,6 @@ Functionalities of the programm
 
 import helpers
 
-
 user_input = helpers.welcome()
 
 match user_input:
